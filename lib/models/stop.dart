@@ -12,8 +12,15 @@ class Stop {
   });
 
   factory Stop.fromJson(Map<String, dynamic> jsonMap) {
-    final stopId = jsonMap['stopId']["\$t"];
+    final stopId = jsonMap['realtimeinformation']['stopid']['\$t'];
     final List<Arrival> arrivalsList = [];
+    final results = jsonMap['realtimeinformation']['results']['result'];
+
+    if (results != null) {
+      for (var result in results) {
+        arrivalsList.add(Arrival.fromJson(result));
+      }
+    }
 
     return Stop(
       arrivals: arrivalsList,
