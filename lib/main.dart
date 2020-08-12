@@ -43,12 +43,36 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget buildList() {
     if (_stop.arrivals.isEmpty) {
-      return Text("Empty");
+      return Text("Sorry, there are no buses anytime soon 🤷🏽‍♀️");
     }
     return ListView.builder(
       itemCount: _stop.arrivals.length,
       itemBuilder: (BuildContext context, int index) {
-        return Text('LOL');
+        return Padding(
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
+          child: Container(
+            height: 40,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey,
+                  spreadRadius: 1,
+                  offset: Offset(0, 0),
+                )
+              ],
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text("Arriving in ${_stop.arrivals[index].dueTime} mins"),
+                Text(
+                    "${_stop.arrivals[index].route} to ${_stop.arrivals[index].destination}"),
+              ],
+            ),
+          ),
+        );
       },
     );
   }
