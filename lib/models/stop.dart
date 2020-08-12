@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:retrofit_xml_sample_app/models/arrival.dart';
 
 class Stop {
@@ -30,6 +28,6 @@ class Stop {
 
   @override
   String toString() {
-    return 'Stop { stopId: ${stopId}, arrivals: ${arrivals.length} }';
+    return 'Stop { stopId: $stopId, arrivals: ${arrivals.length} }';
   }
 }

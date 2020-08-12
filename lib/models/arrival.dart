@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class Arrival {
   final String route;
   final String origin;
@@ -29,6 +27,6 @@ class Arrival {
 
   @override
   String toString() {
-    return 'Arrival { route: ${route} }';
+    return 'Arrival { route: $route }';
   }
 }

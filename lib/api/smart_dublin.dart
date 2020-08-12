@@ -11,7 +11,7 @@ abstract class SmartDublinClient {
     dio.interceptors.add(InterceptorsWrapper(
       onResponse: (Response response) async {
         response.data = Utils.decodeXmlResponseIntoJson(response.data);
-        return response; // continue
+        return response;
       },
     ));
     dio.interceptors.add(LogInterceptor(requestBody: true, responseBody: true));
